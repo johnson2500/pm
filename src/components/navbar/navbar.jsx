@@ -5,7 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import InputBase from '@material-ui/core/InputBase';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Note, Settings } from '@material-ui/icons';
 import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles((theme) => ({
@@ -63,10 +63,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SearchAppBar(props) {
+export default function SearchAppBar() {
   const classes = useStyles();
-
-  const { changeDrawer } = props;
 
   return (
     <div className={classes.root}>
@@ -77,12 +75,11 @@ export default function SearchAppBar(props) {
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={() => { changeDrawer({ open: true }); }}
           >
-            <MenuIcon />
+            <Note />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            PM
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
@@ -97,6 +94,9 @@ export default function SearchAppBar(props) {
               inputProps={{ 'aria-label': 'search' }}
             />
           </div>
+          <IconButton>
+            <Settings />
+          </IconButton>
         </Toolbar>
       </AppBar>
     </div>
